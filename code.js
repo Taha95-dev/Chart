@@ -57,11 +57,12 @@ let currentChart = null;
             // Get country name from select dropdown
             const countryName = countrySelect.options[countrySelect.selectedIndex].text;
             const formatselect = changeformat.options[changeformat.selectedIndex].text;
+            const chartType = changeformat.value;
 
             // Create new chart
             const ctx = canvas.getContext('2d');
             currentChart = new Chart(ctx, {
-                type: `${formatselect}`,
+                type: chartType,
                 data: {
                     labels: years,
                     datasets: [{
