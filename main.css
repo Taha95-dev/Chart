@@ -21,6 +21,11 @@ body {
             color: #333;
             margin-bottom: 5px;
         }
+        p {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+        }
         .controls {
             display: flex;
             gap: 15px;
