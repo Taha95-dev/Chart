@@ -8,6 +8,7 @@ let currentChart = null;
         const canvas = document.getElementById('gdpChart');
         const loadingDiv = document.getElementById('loading');
         const errorDiv = document.getElementById('errorMsg');
+
         
         // Function to fetch GDP data for a country
         async function fetchGDPData(countryCode) {
@@ -53,14 +54,13 @@ let currentChart = null;
                 currentChart.destroy();
                 currentChart = null;
             }
-            
             // Get country name from select dropdown
             const countryName = countrySelect.options[countrySelect.selectedIndex].text;
             const formatselect = changeformat.options[changeformat.selectedIndex].text;
             const chartType = changeformat.value;
-
             // Create new chart
             const ctx = canvas.getContext('2d');
+
             currentChart = new Chart(ctx, {
                 type: chartType,
                 data: {
@@ -137,12 +137,11 @@ let currentChart = null;
                 console.error(error);
             }
         }
-        
         // Load data when button is clicked
         loadBtn.addEventListener('click', loadAndDisplayChart);
         
         // Also load when dropdown changes (optional)
         countrySelect.addEventListener('change', loadAndDisplayChart);
-        
+        changeformat.addEventListener("change", loadAndDisplayChart);
         // Load default country (Pakistan) when page loads
         loadAndDisplayChart();
