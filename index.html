@@ -3,44 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDP Chart - Multiple Countries</title>
+    <title>GDP Chart - Search Any Country (Live API)</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="chart-container">
-        <h1>GDP by Country (Current US$)</h1>
-        <p>A chart that the GDP data of many countries over the past ten years</p>
+        <h1>📊 GDP by Country (Current US$)</h1>
+        <div class="subtitle">Search any country — Live data from World Bank API</div>
         
         <div class="controls">
-            <select id="countrySelect">
-                <option value="PK">🇵🇰 Pakistan</option>
-                <option value="IN">🇮🇳 India</option>
-                <option value="US">🇺🇸 United States</option>
-                <option value="GB">🇬🇧 United Kingdom</option>
-                <option value="BD">🇧🇩 Bangladesh</option>
-                <option value="LK">🇱🇰 Sri Lanka</option>
-                <option value="NP">🇳🇵 Nepal</option>
-                <option value="CN">🇨🇳 China</option>
-                <option value="JP">🇯🇵 Japan</option>
-                <option value="DE">🇩🇪 Germany</option>
-            </select>
-            <select id="change-format">
-                <option value="bar">bar</option>
-                <option value="line">line</option>
-                <option value="pie">pie</option>
-                <option value="doughnut">doughnut</option>
-                <option value="polarArea">polarArea</option>
-                <option value="radar">radar</option>
-            </select>
+            <div class="search-box">
+                <input type="text" id="countrySearch" placeholder="Start typing a country name (e.g., Pakistan, Brazil, Nigeria)" autocomplete="off">
+                <div id="suggestions" class="suggestions"></div>
+            </div>
             <button id="loadBtn">Load GDP Data</button>
         </div>
 
+        <div class="chart-type-buttons">
+            <button id="barBtn" class="active">📊 Bar Chart</button>
+            <button id="lineBtn">📈 Line Chart</button>
+            <button id="pieBtn">🥧 Pie Chart</button>
+        </div>
+
         <canvas id="gdpChart"></canvas>
-        <div id="loading" class="loading">Loading GDP data...</div>
+        <div id="loading" class="loading">🌍 Fetching GDP data from World Bank...</div>
         <div id="errorMsg" class="error"></div>
+        <div id="countryInfo" class="country-info"></div>
+        <div id="statusBadge" class="status-badge"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="code.js">
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <script src="code.js"></script>
 </body>
 </html>
