@@ -5,23 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GDP Chart - Search Any Country (Live API)</title>
     <link rel="stylesheet" href="main.css">
-    <script>
-        // Simple password protection for Fiverr demos
-        const PASSWORD = "demo2024";
-        const userPass = prompt("🔒 Demo Access\n\nContact taha95-dev on Fiverr for password:");
-        
-        if (userPass !== PASSWORD) {
-            document.body.innerHTML = `
-                <div style="text-align:center;margin-top:100px;font-family:Arial">
-                    <h1>🔒 Access Denied</h1>
-                    <p>This demo is for authorized clients only.</p>
-                    <p>📧 Contact <strong>taha95-dev</strong> on Fiverr</p>
-                    <p style="color:#666;margin-top:50px">Professional graphing solutions available</p>
-                </div>
-            `;
-            throw new Error("Unauthorized access");
-        }
-    </script>
 <body>
     <div class="chart-container">
         <h1>📊 GDP by Country (Current US$)</h1>
